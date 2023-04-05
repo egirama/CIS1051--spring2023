@@ -33,19 +33,19 @@ Working alone.
 
 ### In a sentence (or list of features), define a BETTER outcome for your final project. I.e., what do you THINK you can accomplish before the final project's deadline?
 
-Character can carry items on her
-Meets the villain
-Fights the villain 
-Longer and better clues 
-Adding NPC characters 
-Around 10 mins 
+- Character can carry items on her
+- Meets the villain
+- Fights the villain 
+- Longer and better clues 
+- Adding NPC characters 
+- Around 10 mins 
 
 ### In a sentence (or list of features), define a BEST outcome for your final project. I.e., what do you HOPE to accomplish before the final project's deadline?
 
-2 different endings
-Being able to include file deleting 
-Longer than 20 mins 
-More details around the world
+- 2 different endings
+- Being able to include file deleting 
+- Longer than 20 mins 
+- More details around the world
 
 ## In a paragraph or more, outline your next steps. What new skills will you need to acquire? What topics will you need to research? If working with one of two classmates, who will do what?
 
