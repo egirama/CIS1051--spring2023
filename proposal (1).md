@@ -24,12 +24,12 @@ Working alone.
 
 ### In a sentence (or list of features), define a GOOD outcome for your final project. I.e., what WILL you accomplish no matter what?
 
-Character design 
-World-building
-The background for the story 
-The character will be able to start on her adventure to find clues. 
-Around 5 mins 
-music will be included 
+- Character design 
+- World-building
+- The background for the story 
+- The character will be able to start on her adventure to find clues. 
+- Around 5 mins 
+- Music will be included 
 
 ### In a sentence (or list of features), define a BETTER outcome for your final project. I.e., what do you THINK you can accomplish before the final project's deadline?
 
