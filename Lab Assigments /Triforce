@@ -1,0 +1,22 @@
+#This program creates a triforce using turtles
+
+import turtle
+
+bob = turtle.Turtle()
+n = 3
+
+for _ in range(3):
+    bob.left(360//n)
+    bob.forward(50)
+
+for _ in range(2):
+    bob.right(360//n)
+    bob.forward(50)
+
+for _ in range(2):
+    bob.left(360//n)
+    bob.forward(50)
+
+for _ in range(2):
+    bob.forward(50)
+    bob.left(360//n)
