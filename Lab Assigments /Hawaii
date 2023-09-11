@@ -1,0 +1,75 @@
+#Hawaiian Word Pronouncer
+
+vowels = {"a":"ah","e":"eh", "i":"ee", "o":"oh", "u": "oo",}
+doubleVowels = {"ai":"eye", "ae":"eye", "ao":"ow","au":"ow","ei":"ay","eu":"eh-
+oo","iu":"ew","oi":"oyo","ou":"ow","ui":"ooey",}
+consonant = {"p":"p", "k":"k", "h":"h", "l":"l", "m":"m", "n":"n", " ":" ",
+"'":"'"}
+wConsonant= {"w":["w", "v"]}
+def validate(word):
+for letter in word:
+# print(letter)
+if letter not in vowels and letter not in doubleVowels and letter not in
+consonant:
+# print(letter)
+return False, letter
+return True, letter
+# word = input("Enter a hawaiian word to pronounce ==> ").lower().strip()
+# print(word)
+# validate(word)
+def pronouce(word):
+word = word.lower()
+# print(word)
+output = ""
+i = 0 #i is index
+while i < len(word):
+if word[i: i+2] in doubleVowels:
+output+= doubleVowels[word[i: i+2]] + "-"
+i+=2
+elif word[i] in wConsonant:
+if word[0] == "w":
+output += wConsonant[word[i]][0]
+i+=1
+elif word == "w" and word[i-1] == "i" or word[i-1] == "e":
+output +=wConsonant[word[i]][1]
+i+=1
+else:
+output += wConsonant[word[i]][0]
+i+=1
+elif word[i] in vowels:
+output+= vowels[word[i]] + "-"
+i+=1
+elif word[i] in consonant:
+output+= consonant[word[i]]
+i+=1
+elif word[i]== "'":
+output +=word[i]
+i+=1
+if output[-1] == "-":
+# print(word.upper(), "is pronounced", output[0:-1])
+print(output[0:-1].replace("- "," ").replace("-'","'"))
+else:
+# print(word.upper(), "is pronounced", output)
+print(output[0:-1].replace("- "," ").replace("-'","'"))
+def main():
+word = input("Enter a hawaiian word to pronounce ==> ").lower().strip()
+# print(word)
+x, y =validate(word)
+if x == False:
+print(y, "is not a valid hawaiian character")
+else:
+pronouce(word)
+def main_sub():
+response = input("Do you want to enter another word? Y/YES/N/NO
+==>").upper()
+if response == "Y" or response == "YES":
+main()
+if response == "N" or response == "NO":
+return
+if response not in ["YES", "Y","NO", "N"]:
+print("ENTER Y, YES, N, or NO")
+# response = input("Do you want to enter another word? Y/YES/N/NO
+==>").upper()
+main_sub()
+main_sub()
+main()
