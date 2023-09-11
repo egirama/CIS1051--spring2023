@@ -1,0 +1,13 @@
+#This program creates a mario staircase
+
+def mario():
+    height = int(input("Height:"))
+
+    while height < 1 or height > 8:
+        height = int(input("Height:"))
+    space= height+1
+    for i in range(height+1):
+        print(" "*space, "#"*i)
+        i+=1
+        space-=1
+mario()
