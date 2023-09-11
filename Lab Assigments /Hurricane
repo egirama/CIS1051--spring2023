@@ -1,0 +1,69 @@
+#This program creates a hurricane tracker
+
+import turtle
+def irma_setup():
+"""Creates the Turtle and the Screen with the map background
+and coordinate system set to match latitude and longitude.
+:return: a tuple containing the Turtle and the Screen
+DO NOT CHANGE THE CODE IN THIS FUNCTION!
+"""
+import tkinter
+turtle.setup(965, 600) # set size of window to size of map
+wn = turtle.Screen()
+wn.title("Hurricane Irma")
+# kludge to get the map shown as a background image,
+# since wn.bgpic does not allow you to position the image
+canvas = wn.getcanvas()
+turtle.setworldcoordinates(-90, 0, -17.66, 45) # set the coordinate system to
+match lat/long
+map_bg_img = tkinter.PhotoImage(file="images/atlantic-basin.png")
+# additional kludge for positioning the background image
+# when setworldcoordinates is used
+canvas.create_image(-1175, -580, anchor=tkinter.NW, image=map_bg_img)
+t = turtle.Turtle()
+wn.register_shape("images/hurricane.gif")
+t.shape("images/hurricane.gif")
+return (t, wn, map_bg_img)
+import pandas as pd
+data = pd.read_csv("data/irma.csv")
+print(data)
+print(len(data.index))
+def irma():
+"""Animates the path of hurricane Irma
+"""
+(t, wn, map_bg_img) = irma_setup()
+lon = data['Lon']
+lat = data['Lat']
+wind = data['Wind']
+t.penup()
+t.goto(-30.3,16.4)
+t.pendown()
+for l in range(len(lon)):
+if wind[l]< 74:
+t.width(1)
+t.pencolor("white")
+elif 74 <= wind[l]<= 95:
+t.width(2)
+t.pencolor("blue")
+t.write("1", font = ("Times New Roman", 15))
+elif 96 <= wind[l] <= 110:
+t.width(5)
+t.pencolor("green")
+t.write("2", font = ("Times New Roman", 15))
+elif 111 <= wind[l] <= 129:
+t.width(8)
+t.pencolor("yellow")
+t.write("3", font = ("Times New Roman", 15))
+elif 130 <= wind[l] <= 156:
+t.width(12)
+t.pencolor("orange")
+t.write("4", font = ("Times New Roman", 15))
+else:
+t.width(14)
+t.pencolor("red")
+t.write("5", font = ("Times New Roman", 15))
+t.goto(lon[l],lat[l])
+turtle.exitonclick()
+# your code to animate Irma here
+if __name__ == "__main__":
+irma()
