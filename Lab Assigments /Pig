@@ -1,0 +1,159 @@
+#Implementing a dice game called pig
+
+import random
+#PART 1
+def holdAt20(limit=20):
+turnTotal = 0
+while turnTotal < limit:
+roll = random.randint(1,6)
+#print("ROll:", roll)
+if roll == 1:
+turnTotal = 0
+#print("Turn Total:", turnTotal)
+return turnTotal
+else:
+turnTotal += roll
+#print("Turn Total:", turnTotal)
+return turnTotal
+#holdAt20()
+#PART 2
+def holdAt20Outcomes():
+outcomes = {0:0}
+trials = int(input("How many Hold-at-20 turn simulations?"))
+for val in range(20,26):
+outcomes[val]= 0
+for _ in range(trials):
+score = holdAt20()
+outcomes[score] += 1
+print('Score\tEstimated Probability')
+for score in outcomes:
+print(score, outcomes[score]/trials)
+#holdAt20Outcomes()
+#PART 3
+def holdAtXOutcomes():
+outcomes = {0:0}
+trials = int(input("How many Hold-at-20 turn simulations?"))
+limit = int(input("what should the hold value be"))
+for val in range(limit, limit+6):
+outcomes[val]= 0
+for _ in range(trials):
+score = holdAt20(limit)
+outcomes[score] += 1
+for score in outcomes:
+print(score, outcomes[score]/trials)
+#holdAtXOutcomes()
+#PART 4
+def holdAt20rGoal():
+turnTotal = 0
+score = int(input("Score?"))
+while turnTotal < 20 and turnTotal + score < 100:
+roll = random.randint(1,6)
+print("roll:", roll)
+if roll == 1:
+turnTotal= 0
+return 0, score
+else:
+turnTotal +=roll
+return turnTotal, score+turnTotal
+#turnScore, newScore = holdAt20rGoal()
+#print("turn Total:", turnScore)
+#print("new Score:",newScore)
+#PART 5
+def useful(score):
+turnT = 0
+while turnT < 20 and turnT + score < 100:
+roll = random.randint(1,6)
+print("roll:", roll)
+if roll == 1:
+turnT= 0
+return 0, score
+else:
+turnT +=roll
+return turnT, score+turnT
+def holdAt20orGoalGame():
+score = 0
+turnTotal= 0
+while score < 100:
+turnTotal, newscore= useful(score)
+print("Turn Total:", turnTotal)
+print("Score:", newscore)
+score = newscore
+#holdAt20orGoalGame()
+#PART 6
+def forAvg(score):
+turnT = 0
+while turnT < 20 and turnT + score < 100:
+roll = random.randint(1,6)
+if roll == 1:
+turnT= 0
+return score
+else:
+turnT +=roll
+return score+turnT
+def averagePigTurn():
+totalTurns = 0
+TRIALS = int(input("Games?"))
+for _ in range(TRIALS):
+turns = 0
+score = 0
+while score < 100:
+score = forAvg(score)
+turns+=1
+totalTurns += turns
+print("Average turns:", totalTurns / TRIALS)
+#averagePigTurn()
+#PART 7
+def twoPlayerPig():
+playerOne = 0
+playerTwo = 0
+while playerOne < 100 and playerTwo < 100:
+print("player 1 score:", playerOne)
+print("player 2 score:", playerTwo)
+print("It is player 1's turn.")
+turn1,playerOne = useful(playerOne)
+print('Turn Total:',turn1)
+print('New score:',playerOne)
+print('it is player two turn')
+turn2,playerTwo = useful(playerTwo)
+print('Turn Total:',turn2)
+print('New score:',playerTwo)
+print("player 1 score:", playerOne)
+print("player 2 score:", playerTwo)
+#twoPlayerPig()
+#PART 8
+def pigGame():
+you = str(random.randint(1,2))
+print('You are player '+you)
+if you == '1':
+comp = '2'
+else:
+comp = '2'
+player1score = 0
+player2score = 0
+if you == '1' or you == '2':
+print('Enter nothing roll; enter anything to hold.')
+while player1score<100 and player2score<100:
+print('Player 1 Score:',player1score)
+print('Player 2 Score:',player2score)
+print()
+print("It is Player 1's turn")
+go = ''
+turn = 0
+while go == '':
+roll = random.randint(1,6)
+print("Roll", roll)
+if roll == 1:
+turn = 0
+break
+else:
+turn += roll
+line = 'Turn total:' +' '+str(turn)
+go = input(line + ' Roll/Hold?')
+player1score+=turn
+print("Turn Total", turn)
+print("New score", player1score)
+print("Its player's 2 turn")
+turntotal2,player2score = useful(player2score)
+print("Turn Total", turntotal2)
+print("New score", player2score)
+pigGame()
