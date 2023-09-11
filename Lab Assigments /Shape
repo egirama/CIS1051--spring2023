@@ -1,0 +1,11 @@
+#This program asks a user to input the number of sides they would like the creates a shape with the number of sides
+
+import turtle
+
+n = int(input("enter how many sides you want"))
+length = int(input("enter side length"))
+bob = turtle.Turtle()
+
+for _ in range(n):
+    bob.left(360//n)
+    bob.forward(length)
