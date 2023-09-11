@@ -1,0 +1,107 @@
+#This program uses turtles to draw the Olympic ring logo
+
+import turtle
+
+wn = turtle.Screen()
+bob = turtle.Turtle()
+bob.pensize(10)
+bob.speed(12)
+
+#black line
+bob.penup()
+bob.goto(0,100)
+bob.color("black")
+bob.left(180)
+bob.pendown()
+bob.circle(-100,90)
+bob.penup()
+bob.circle(-100,-90)
+bob.left(180)
+bob.pendown()
+
+#green line
+bob.penup()
+bob.left(90)
+bob.color("green")
+bob.pendown()
+bob.circle(-100,-180)
+
+#red line
+bob.penup()
+bob.goto(230,100)
+bob.color("red")
+bob.pendown()
+bob.right(90)
+bob.circle(-100,-270)
+bob.penup()
+bob.right(180)
+bob.circle(-100,10)
+bob.penup()
+bob.goto(230,100)
+bob.right(80)
+bob.pendown()
+bob.circle(-100,83)
+
+#green line
+bob.penup()
+bob.goto(200,113)
+bob.color("green")
+bob.pendown()
+bob.circle(100,90)
+
+#black line
+bob.penup()
+bob.goto(10,100)
+bob.color("black")
+bob.pendown()
+bob.left(-5)
+bob.circle(-100,-250)
+
+#green line
+bob.penup()
+bob.color("green")
+bob.goto(0,100)
+bob.pendown()
+bob.left(18)
+bob.circle(-100,83)
+
+#orange line
+bob.penup()
+bob.color("orange")
+bob.goto(-25,114)
+bob.pendown()
+bob.left(90)
+bob.circle(100,100)
+bob.penup()
+bob.goto(-25,94)
+bob.pendown()
+bob.left(70)
+bob.circle(-100,170)
+
+#orange line
+bob.right(-1)
+bob.circle(-100,79)
+
+#blue line
+bob.penup()
+bob.color("blue")
+bob.goto(-260,100)
+bob.pendown()
+bob.left(140)
+bob.circle(-100,334)
+
+#blue line
+bob.penup()
+bob.goto(-220,95)
+bob.pendown()
+bob.circle(-100,30)
+
+#black line
+bob.penup()
+bob.color("black")
+bob.goto(-84,245)
+bob.left(86)
+bob.pendown()
+bob.circle(100,23)
+
+wn.exitonclick()
